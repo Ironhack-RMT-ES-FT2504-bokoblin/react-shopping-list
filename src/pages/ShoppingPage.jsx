@@ -17,17 +17,9 @@ function ShoppingPage() {
 
       <h1>Shopping List!</h1>
 
-      {/* //* all elements of the shopping list will be here */}
-      {allProducts.map((eachProduct, index) => {
-        return (
-          <div className="product-card" key={index}>
-            <h3>{eachProduct.name}</h3>
-            <p>{eachProduct.price}€</p>
-            <p>{eachProduct.isPurchased === true ? "✅" : "🟡"}</p>
-            <button>Buy</button>
-          </div>
-        )
-      })}
+      <AddForm />
+
+      <ProductList allProducts={allProducts}/>
 
     </>
   )
