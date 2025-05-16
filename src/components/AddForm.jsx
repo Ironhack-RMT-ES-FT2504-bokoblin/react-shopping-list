@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function AddForm() {
+function AddForm(props) {
 
   const [ nameInputValue, setNameInputValue ] = useState("")
   const [ priceInputValue, setPriceInputValue ] = useState(0)
@@ -29,6 +29,14 @@ function AddForm() {
     }
 
     console.log(productToAdd)
+    // props.añadirProducto(productToAdd)
+
+    // props.setAllProducts([...props.allProducts, productToAdd])
+    props.setAllProducts( (valorActualDelEstado) => {
+      // retornamos cual queremos que sea el nuevo valor del estado
+      let nuevoValorDelEstado = [...valorActualDelEstado, productToAdd]
+      return nuevoValorDelEstado
+    } )
 
   }
 
@@ -58,3 +66,12 @@ function AddForm() {
 }
 
 export default AddForm
+
+
+
+// state ...
+// setState( /* le doy el nuevo valor */ )
+
+// setState( (state) => {
+//   return /* le doy el nuevo valor */
+// })

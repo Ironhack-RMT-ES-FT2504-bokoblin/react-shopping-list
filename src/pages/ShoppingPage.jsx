@@ -12,14 +12,25 @@ function ShoppingPage() {
   const [ allProducts, setAllProducts ] = useState(testProducts) 
   //* initial state. change to empty array when finished with add functionality
 
+  const [ searchInputValue, setSearchInputValue ] = useState("")
+
+  // const añadirProducto = (elProducto) => {
+  //   setAllProducts( [...allProducts, elProducto] )
+  // }
+
+  // hacer filter de allProduct
+  // si el nombre del producto empieza por la palabra en el searchInputValue
+
   return (
     <>
 
       <h1>Shopping List!</h1>
 
-      <AddForm />
+      <AddForm setAllProducts={setAllProducts}/>
 
-      <ProductList allProducts={allProducts}/>
+      <SearchBar searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue}/>
+
+      <ProductList allProducts={allProducts} searchInputValue={searchInputValue} setAllProducts={setAllProducts}/>
 
     </>
   )
